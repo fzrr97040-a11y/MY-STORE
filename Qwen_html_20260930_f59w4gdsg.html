@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لُجين | لوازم المنزل والمطبخ الفاخرة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #D4A5A5;
+    --primary-dark: #B88888;
+    --gold: #C9A96E;
+    --gold-light: #E5D4A8;
+    --cream: #FAF7F5;
+    --cream-dark: #F0E8E2;
+    --brown: #8B6F5C;
+    --text-dark: #3D2F2A;
+    --text-light: #7A6A63;
+    --white: #FFFFFF;
+    --shadow-soft: 0 4px 20px rgba(139, 111, 92, 0.08);
+    --shadow-hover: 0 12px 40px rgba(139, 111, 92, 0.15);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .serif { font-family: 'Amiri', serif; }
+  .latin-serif { font-family: 'Playfair Display', serif; }
+
+  /* ============ Announcement Bar ============ */
+  .announcement {
+    background: linear-gradient(90deg, var(--brown), var(--primary-dark));
+    color: var(--white);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  .announcement span { color: var(--gold-light); font-weight: 700; }
+
+  /* ============ Header ============ */
+  header {
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+  .header-top {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary), var(--gold));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(212, 165, 165, 0.4);
+  }
+  .logo-text h1 {
+    font-family: 'Amiri', serif;
+    font-size: 28px;
+    color: var(--brown);
+    line-height: 1;
+  }
+  .logo-text p {
+    font-size: 11px;
+    color: var(--text-light);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .search-bar {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+  }
+  .search-bar input {
+    width: 100%;
+    padding: 14px 50px 14px 20px;
+    border: 1.5px solid var(--cream-dark);
+    border-radius: 50px;
+    background: var(--cream);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 14px;
+    transition: var(--transition);
+  }
+  .search-bar input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--white);
+  }
+  .search-bar svg {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+  }
+
+  .header-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .icon-btn {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brown);
+    transition: var(--transition);
+  }
+  .icon-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+  .badge {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    background: var(--gold);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ============ Navigation ============ */
+  nav {
+    border-top: 1px solid var(--cream-dark);
+    background: var(--white);
+  }
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    padding: 18px 0;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    transition: var(--transition);
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: var(--transition);
+  }
+  nav a:hover { color: var(--primary-dark); }
+  nav a:hover::after { width: 100%; }
+  nav a.featured { color: var(--gold); font-weight: 700; }
+
+  /* ============ Hero Section ============ */
+  .hero {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+  }
+  .hero-main {
+    background: linear-gradient(135deg, #F5E6E0 0%, #EAD5CC 100%);
+    border-radius: 30px;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-main::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+    opacity: 0.5;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--white);
+    color: var(--brown);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 25px;
+    width: fit-content;
+    box-shadow: var(--shadow-soft);
+  }
+  .hero-main h2 {
+    font-family: 'Amiri', serif;
+    font-size: 56px;
+    line-height: 1.2;
+    color: var(--brown);
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero-main h2 span {
+    color: var(--primary-dark);
+    font-style: italic;
+  }
+  .hero-main p {
+    font-size: 17px;
+    color: var(--text-light);
+    margin-bottom: 35px;
+    max-width: 450px;
+  }
+  .btn-primary {
+    background: var(--brown);
+    color: var(--white);
+    padding: 16px 40px;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    box-shadow: 0 8px 20px rgba(139, 111, 92, 0.3);
+  }
+  .btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(184, 136, 136, 0.4);
+  }
+
+  .hero-side {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+  }
+  .hero-card {
+    border-radius: 30px;
+    padding: 35px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 235px;
+    transition: var(--transition);
+  }
+  .hero-card:hover { transform: translateY(-5px); }
+  .hero-card-1 {
+    background: linear-gradient(135deg, #E8D5C4 0%, #D4B89A 100%);
+  }
+  .hero-card-2 {
+    background: linear-gradient(135deg, #F0E0D8 0%, #E0C8BC 100%);
+  }
+  .hero-card h3 {
+    font-family: 'Amiri', serif;
+    font-size: 28px;
+    color: var(--brown);
+    margin-bottom: 8px;
+  }
+  .hero-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 15px;
+  }
+  .hero-card .link {
+    color: var(--brown);
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ============ Section Titles ============ */
+  .section {
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 0 40px;
+  }
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .section-title {
+    font-family: 'Amiri', serif;
+    font-size: 42px;
+    color: var(--brown);
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--primary));
+    margin-top: 10px;
+    border-radius: 2px;
+  }
+  .section-subtitle {
+    font-size: 15px;
+    color: var(--text-light);
+    margin-top: 8px;
+  }
+  .view-all {
+    color: var(--brown);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1.5px solid var(--cream-dark);
+    border-radius: 50px;
+    transition: var(--transition);
+  }
+  .view-all:hover {
+    background: var(--brown);
+    color: var(--white);
+    border-color: var(--brown);
+  }
+
+  /* ============ Categories ============ */
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+  }
+  .category-card {
+    background: var(--white);
+    border-radius: 25px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1.5px solid transparent;
+  }
+  .category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary);
+  }
+  .category-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 18px;
+    background: linear-gradient(135deg, var(--cream), var(--cream-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    transition: var(--transition);
+  }
+  .category-card:hover .category-icon {
+    background: linear-gradient(135deg, var(--primary), var(--gold));
+    transform: rotate(-8deg) scale(1.05);
+  }
+  .category-card h4 {
+    font-size: 16px;
+    color: var(--brown);
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  .category-card span {
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  /* ============ Products ============ */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  .product-card {
+    background: var(--white);
+    border-radius: 25px;
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+  }
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+  }
+  .product-image {
+    position: relative;
+    height: 280px;
+    background: var(--cream);
+    overflow: hidden;
+  }
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+  .product-card:hover .product-image img {
+    transform: scale(1.08);
+  }
+  .product-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--gold);
+    color: var(--white);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 2;
+  }
+  .product-badge.new { background: var(--primary); }
+  .product-badge.sale { background: #D47A7A; }
+  .product-actions {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: var(--transition);
+  }
+  .product-card:hover .product-actions {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .action-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brown);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+  }
+  .action-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+  .product-info {
+    padding: 22px;
+  }
+  .product-category {
+    font-size: 12px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .product-name {
+    font-size: 17px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.4;
+    min-height: 48px;
+  }
+  .product-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  .stars { color: var(--gold); }
+  .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .price {
+    display: flex;
+    flex-direction: column;
+  }
+  .price-current {
+    font-size: 22px;
+    color: var(--brown);
+    font-weight: 700;
+    font-family: 'Amiri', serif;
+  }
+  .price-old {
+    font-size: 13px;
+    color: var(--text-light);
+    text-decoration: line-through;
+  }
+  .add-cart {
+    width: 42px;
+    height: 42px;
+    background: var(--cream);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--brown);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .add-cart:hover {
+    background: var(--brown);
+    color: var(--white);
+    transform: rotate(90deg);
+  }
+
+  /* ============ Features Banner ============ */
+  .features-banner {
+    background: linear-gradient(135deg, var(--cream-dark) 0%, var(--cream) 100%);
+    padding: 50px 40px;
+    margin: 80px auto;
+    max-width: 1400px;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brown);
+    flex-shrink: 0;
+    box-shadow: var(--shadow-soft);
+  }
+  .feature-item h5 {
+    font-size: 16px;
+    color: var(--brown);
+    margin-bottom: 4px;
+  }
+  .feature-item p {
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  /* ============ Promo Section ============ */
+  .promo-section {
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .promo-card {
+    border-radius: 30px;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .promo-1 {
+    background: linear-gradient(135deg, #E8D5C4 0%, #C9A96E 100%);
+    color: var(--white);
+  }
+  .promo-2 {
+    background: linear-gradient(135deg, #F5E6E0 0%, #D4A5A5 100%);
+    color: var(--brown);
+  }
+  .promo-card .latin-serif {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 15px;
+  }
+  .promo-card h3 {
+    font-family: 'Amiri', serif;
+    font-size: 38px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+  .promo-card p {
+    font-size: 15px;
+    margin-bottom: 25px;
+    opacity: 0.9;
+  }
+  .btn-outline {
+    background: transparent;
+    color: inherit;
+    padding: 14px 35px;
+    border: 2px solid currentColor;
+    border-radius: 50px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    width: fit-content;
+  }
+  .btn-outline:hover {
+    background: var(--white);
+    color: var(--brown);
+    border-color: var(--white);
+  }
+
+  /* ============ Newsletter ============ */
+  .newsletter {
+    background: linear-gradient(135deg, var(--brown) 0%, var(--primary-dark) 100%);
+    padding: 80px 40px;
+    text-align: center;
+    color: var(--white);
+    margin: 80px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .newsletter::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+    opacity: 0.2;
+  }
+  .newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .newsletter h2 {
+    font-family: 'Amiri', serif;
+    font-size: 42px;
+    margin-bottom: 15px;
+  }
+  .newsletter p {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 8px;
+    border-radius: 50px;
+  }
+  .newsletter-form input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px 20px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 14px;
+    color: var(--text-dark);
+    outline: none;
+  }
+  .newsletter-form button {
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .newsletter-form button:hover {
+    background: var(--primary);
+  }
+
+  /* ============ Footer ============ */
+  footer {
+    background: var(--white);
+    padding: 60px 40px 30px;
+  }
+  .footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+  }
+  .footer-col h4 {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    color: var(--brown);
+    margin-bottom: 20px;
+  }
+  .footer-col p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+  .footer-col ul {
+    list-style: none;
+  }
+  .footer-col ul li {
+    margin-bottom: 12px;
+  }
+  .footer-col ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition);
+  }
+  .footer-col ul li a:hover {
+    color: var(--primary-dark);
+    padding-right: 5px;
+  }
+  .social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .social-links a {
+    width: 40px;
+    height: 40px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brown);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  .social-links a:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-3px);
+  }
+  .footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid var(--cream-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  .payment-methods {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .payment-methods span {
+    background: var(--cream);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--brown);
+  }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; }
+    .products-grid { grid-template-columns: repeat(3, 1fr); }
+    .categories { grid-template-columns: repeat(3, 1fr); }
+    .features-banner { grid-template-columns: repeat(2, 1fr); }
+    .footer-container { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .header-top { flex-wrap: wrap; padding: 15px 20px; }
+    .search-bar { order: 3; max-width: 100%; }
+    .nav-container { overflow-x: auto; justify-content: flex-start; padding: 0 20px; }
+    nav a { white-space: nowrap; }
+    .hero-main { padding: 40px 30px; }
+    .hero-main h2 { font-size: 38px; }
+    .section { padding: 0 20px; margin: 50px auto; }
+    .section-title { font-size: 32px; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .categories { grid-template-columns: repeat(2, 1fr); }
+    .promo-section { grid-template-columns: 1fr; padding: 0 20px; }
+    .promo-card { padding: 35px; min-height: 250px; }
+    .promo-card h3 { font-size: 28px; }
+    .features-banner { grid-template-columns: 1fr; padding: 40px 20px; }
+    .footer-container { grid-template-columns: 1fr; gap: 30px; }
+    .newsletter { padding: 50px 20px; }
+    .newsletter h2 { font-size: 32px; }
+    .newsletter-form { flex-direction: column; background: transparent; padding: 0; }
+    .newsletter-form input { background: var(--white); border-radius: 50px; }
+  }
+  @media (max-width: 480px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .hero-main h2 { font-size: 32px; }
+  }
+
+  /* ============ Animations ============ */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeInUp 0.8s ease-out; }
+</style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="announcement">
+  ✨ شحن مجاني للطلبات فوق <span>300 ر.س</span> | خصم 15% على أول طلب بكود <span>WELCOME15</span>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="header-top">
+    <a href="#" class="logo">
+      <div class="logo-icon">❀</div>
+      <div class="logo-text">
+        <h1>لُجين</h1>
+        <p>LUXURY HOME</p>
+      </div>
+    </a>
+
+    <div class="search-bar">
+      <input type="text" placeholder="ابحثي عن أدوات المطبخ، ديكور المنزل...">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+    </div>
+
+    <div class="header-icons">
+      <button class="icon-btn" title="حسابي">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      <button class="icon-btn" title="المفضلة">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <span class="badge">3</span>
+      </button>
+      <button class="icon-btn" title="السلة">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+          <path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="badge">5</span>
+      </button>
+    </div>
+  </div>
+
+  <nav>
+    <div class="nav-container">
+      <a href="#">الرئيسية</a>
+      <a href="#">أدوات المطبخ</a>
+      <a href="#">ديكور المنزل</a>
+      <a href="#">مفارش وسرير</a>
+      <a href="#">التخزين والتنظيم</a>
+      <a href="#">الحمام</a>
+      <a href="#" class="featured">العروض ✨</a>
+      <a href="#">جديدنا</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-main fade-in">
+    <span class="hero-tag">✨ مجموعة الخريف 2026</span>
+    <h2>لمسات <span>أنثوية</span><br>تُزيّن منزلك</h2>
+    <p>اكتشفي مجموعتنا الفاخرة من أدوات المطبخ والديكور المصممة بعناية لتضيف لمسة من الأناقة والرقي إلى كل ركن في منزلك.</p>
+    <button class="btn-primary">
+      تسوقي الآن
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="hero-side">
+    <div class="hero-card hero-card-1">
+      <div>
+        <h3>أواني الطهي الفاخرة</h3>
+        <p>من أرقى الماركات العالمية</p>
+      </div>
+      <a href="#" class="link">اكتشفي المجموعة ←</a>
+    </div>
+    <div class="hero-card hero-card-2">
+      <div>
+        <h3>خصم 30%</h3>
+        <p>على مجموعة الشموع والعطور</p>
+      </div>
+      <a href="#" class="link">تسوقي العرض ←</a>
+    </div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="section">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title">تسوقي حسب الفئة</h2>
+      <p class="section-subtitle">اختاري من بين مجموعاتنا المتنوعة</p>
+    </div>
+    <a href="#" class="view-all">عرض الكل ←</a>
+  </div>
+
+  <div class="categories">
+    <div class="category-card">
+      <div class="category-icon">🍳</div>
+      <h4>أدوات الطهي</h4>
+      <span>245 منتج</span>
+    </div>
+    <div class="category-card">
+      <div class="category-icon">🍽️</div>
+      <h4>أواني التقديم</h4>
+      <span>182 منتج</span>
+    </div>
+    <div class="category-card">
+      <div class="category-icon">🕯️</div>
+      <h4>الديكور والشموع</h4>
+      <span>156 منتج</span>
+    </div>
+    <div class="category-card">
+      <div class="category-icon">🛏️</div>
+      <h4>المفارش</h4>
+      <span>98 منتج</span>
+    </div>
+    <div class="category-card">
+      <div class="category-icon">🌸</div>
+      <h4>الزهور والنباتات</h4>
+      <span>74 منتج</span>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Products -->
+<section class="section">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title">الأكثر مبيعاً</h2>
+      <p class="section-subtitle">منتجاتنا المميزة التي أحببتها عميلاتنا</p>
+    </div>
+    <a href="#" class="view-all">عرض الكل ←</a>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-image">
+        <span class="product-badge new">جديد</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&h=500&fit=crop" alt="طقم أواني">
+      </div>
+      <div class="product-info">
+        <div class="product-category">أواني الطهي</div>
+        <h3 class="product-name">طقم أواني سيراميك وردي 5 قطع</h3>
+        <div class="product-rating">
+          <span class="stars">★★★★★</span>
+          <span>(128 تقييم)</span>
+        </div>
+        <div class="product-footer">
+          <div class="price">
+            <span class="price-current">450 ر.س</span>
+            <span class="price-old">599 ر.س</span>
+          </div>
+          <button class="add-cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <span class="product-badge sale">-25%</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+        <img src="https://images.unsplash.com/photo-1602874801007-aa24b6d6a0c8?w=500&h=500&fit=crop" alt="شموع">
+      </div>
+      <div class="product-info">
+        <div class="product-category">الديكور</div>
+        <h3 class="product-name">شموع عطرية فاخرة برائحة الورد</h3>
+        <div class="product-rating">
+          <span class="stars">★★★★★</span>
+          <span>(96 تقييم)</span>
+        </div>
+        <div class="product-footer">
+          <div class="price">
+            <span class="price-current">180 ر.س</span>
+            <span class="price-old">240 ر.س</span>
+          </div>
+          <button class="add-cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <span class="product-badge">مميز</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+        <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=500&h=500&fit=crop" alt="مجموعة أكواب">
+      </div>
+      <div class="product-info">
+        <div class="product-category">أواني التقديم</div>
+        <h3 class="product-name">مجموعة أكواب بورسلين ذهبية</h3>
+        <div class="product-rating">
+          <span class="stars">★★★★☆</span>
+          <span>(74 تقييم)</span>
+        </div>
+        <div class="product-footer">
+          <div class="price">
+            <span class="price-current">320 ر.س</span>
+          </div>
+          <button class="add-cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <span class="product-badge new">جديد</span>
+        <div class="product-actions">
+          <button class="action-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+        <img src="https://images.unsplash.com/photo-1631125915699-d347aee67a76?w=500&h=500&fit=crop" alt="مزهرية">
+      </div>
+      <div class="product-info">
+        <div class="product-category">ديكور المنزل</div>
+        <h3 class="product-name">مزهرية رخامية بلمسة عصرية</h3>
+        <div class="product-rating">
+          <span class="stars">★★★★★</span>
+          <span>(52 تقييم)</span>
+        </div>
+        <div class="product-footer">
+          <div class="price">
+            <span class="price-current">275 ر.س</span>
+          </div>
+          <button class="add-cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Banner -->
+<section class="features-banner">
+  <div class="feature-item">
+    <div class="feature-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+        <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+      </svg>
+    </div>
+    <div>
+      <h5>شحن مجاني</h5>
+      <p>للطلبات فوق 300 ر.س</p>
+    </div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M12 6v6l4 2"/>
+      </svg>
+    </div>
+    <div>
+      <h5>إرجاع خلال 14 يوم</h5>
+      <p>بدون أي أسئلة</p>
+    </div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+    </div>
+    <div>
+      <h5>دفع آمن 100%</h5>
+      <p>تشفير SSL متقدم</p>
+    </div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+    </div>
+    <div>
+      <h5>دعم على مدار الساعة</h5>
+      <p>فريق متخصص لخدمتك</p>
+    </div>
+  </div>
+</section>
+
+<!-- Promo Section -->
+<section class="promo-section">
+  <div class="promo-card promo-1">
+    <span class="latin-serif">AUTUMN COLLECTION</span>
+    <h3>مجموعة الخريف الذهبية</h3>
+    <p>قطع حصرية بلمسات دافئة تدفئ منزلك في ليالي الخريف</p>
+    <button class="btn-outline">تسوقي المجموعة</button>
+  </div>
+  <div class="promo-card promo-2">
+    <span class="latin-serif">EXCLUSIVE OFFER</span>
+    <h3>خصم 40% على أدوات المطبخ</h3>
+    <p>لفترة محدودة - لا تفوتي هذه الفرصة الذهبية</p>
+    <button class="btn-outline">اكتشفي العروض</button>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <div class="newsletter-content">
+    <h2>انضمي إلى عالم لُجين</h2>
+    <p>اشتركي في نشرتنا البريدية واحصلي على خصم 10% على أول طلب، بالإضافة لأحدث العروض والمنتجات</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('شكراً لاشتراكك! ✨');">
+      <input type="email" placeholder="أدخلي بريدك الإلكتروني" required>
+      <button type="submit">اشتركي الآن</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>لُجين</h4>
+      <p>متجرك الأول لأرقى لوازم المنزل والمطبخ. نقدم لكِ تجربة تسوق فريدة بمنتجات مختارة بعناية لتضيفي لمسة من الفخامة إلى منزلك.</p>
+      <div class="social-links">
+        <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg></a>
+        <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.984 3.992-.283 1.194.599 2.161 1.777 2.161 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/></svg></a>
+        <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="#">من نحن</a></li>
+        <li><a href="#">المدونة</a></li>
+        <li><a href="#">الأسئلة الشائعة</a></li>
+        <li><a href="#">اتصلي بنا</a></li>
+        <li><a href="#">وظائف</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>خدمة العملاء</h4>
+      <ul>
+        <li><a href="#">سياسة الشحن</a></li>
+        <li><a href="#">الإرجاع والاستبدال</a></li>
+        <li><a href="#">طرق الدفع</a></li>
+        <li><a href="#">تتبع الطلب</a></li>
+        <li><a href="#">الشروط والأحكام</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>تواصلي معنا</h4>
+      <ul>
+        <li><a href="#">📍 الرياض، المملكة العربية السعودية</a></li>
+        <li><a href="#">📞 920000000</a></li>
+        <li><a href="#">✉️ info@lujin.com</a></li>
+        <li><a href="#">🕐 السبت - الخميس: 9ص - 11م</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 لُجين. جميع الحقوق محفوظة ♥</p>
+    <div class="payment-methods">
+      <span>VISA</span>
+      <span>MASTER</span>
+      <span>MADA</span>
+      <span>APPLE PAY</span>
+      <span>TABBY</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll for navigation
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      if (this.getAttribute('href') !== '#') {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Add to cart animation
+  document.querySelectorAll('.add-cart').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      this.style.background = 'var(--gold)';
+      this.style.color = 'white';
+      this.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+      setTimeout(() => {
+        this.style.background = '';
+        this.style.color = '';
+        this.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>';
+      }, 1500);
+    });
+  });
+
+  // Wishlist toggle
+  document.querySelectorAll('.product-actions .action-btn:first-child').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      this.classList.toggle('active');
+      if (this.classList.contains('active')) {
+        this.style.background = 'var(--primary)';
+        this.style.color = 'white';
+      } else {
+        this.style.background = '';
+        this.style.color = '';
+      }
+    });
+  });
+
+  // Intersection Observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.product-card, .category-card, .hero-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'all 0.6s ease-out';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
