@@ -1,1 +1,793 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VEXOURIA | ڤيكسوريا - متجر كل ما يخص المطبخ والمنزل الراقي</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="متجر VEXOURIA يقدم لكِ أرقى أواني المطبخ، مائدة الطعام، منظمات الترتيب والديكورات العصرية بلمسة أنثوية ساحرة. الدفع عند الاستلام وتوصيل سريع لكافة المدن.">
+  <meta name="keywords" content="مطبخ, أواني طبخ, ديكور منزلي, تنظيم المطبخ, مائدة طعام, أدوات منزلية, أواني وردية, فيكسوريا, Vexouria">
+  <meta name="author" content="VEXOURIA STORE">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="VEXOURIA | أناقة المنزل والمطبخ العصري">
+  <meta property="og:description" content="تسوقي تشكيلات استثنائية من أدوات المطبخ والديكور بلمسة أنثوية فاخرة وتوصيل حتى باب المنزل.">
+  <meta property="og:image" content="assets/images/hero.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ============================================================== -->
+  <!-- 📢 1. الشريط العلوي للإعلانات / ANNOUNCEMENT BAR                -->
+  <!-- ============================================================== -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-message">
+        <span>✨ عرض حصري: توصيل مجاني للطلبات فوق 300 د.م | الدفع عند الاستلام ✨</span>
+      </div>
+      <div class="top-actions">
+        <!-- 💱 محول العملات -->
+        <select class="top-select" id="currency-select" onchange="changeCurrency(this.value)">
+          <option value="MAD" selected>MAD (د.م)</option>
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="SAR">SAR (ر.س)</option>
+        </select>
+        <!-- 🌐 زر تبديل اللغة (عربي / English) -->
+        <button class="top-lang-btn" id="lang-toggle-btn" onclick="toggleLanguage()">English</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 🌟 2. الهيدر والقائمة الرئيسية / HEADER & NAVIGATION          -->
+  <!-- ============================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <!-- زر القائمة للهواتف -->
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="فتح القائمة">☰</button>
+
+        <!-- الشعار / BRAND LOGO -->
+        <a href="#home" class="brand-logo">
+          <div class="logo-icon">🌸</div>
+          <div class="logo-text">
+            <span class="logo-title">VEXOURIA</span>
+            <span class="logo-subtitle">Home & Kitchen Elegance</span>
+          </div>
+        </a>
+
+        <!-- روابط القائمة -->
+        <nav>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+            <li><a href="#categories" class="nav-link">مجموعاتنا</a></li>
+            <li><a href="#products" class="nav-link">المنتجات</a></li>
+            <li><a href="#deals" class="nav-link">عرض اليوم <span class="nav-sale-badge">SALE</span></a></li>
+            <li><a href="#why-us" class="nav-link">مميزاتنا</a></li>
+            <li><a href="#reviews" class="nav-link">آراء العميلات</a></li>
+            <li><a href="#faq" class="nav-link">الأسئلة الشائعة</a></li>
+          </ul>
+        </nav>
+
+        <!-- أزرار الإجراءات (البحث، المفضلة، السلة) -->
+        <div class="header-actions">
+          <!-- زر البحث -->
+          <button class="action-btn" title="بحث سريع" onclick="openSearch()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+
+          <!-- زر المفضلة -->
+          <button class="action-btn" title="قائمة المفضلة" onclick="showToast('قائمة المفضلة الخاصة بكِ محفوظة بنجاح 💖')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span class="badge-count" id="wishlist-badge">0</span>
+          </button>
+
+          <!-- زر السلة -->
+          <button class="action-btn" title="سلة المشتريات" onclick="toggleCart()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span class="badge-count" id="cart-badge">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================== -->
+    <!-- 💖 3. واجهة الهيرو الترحيبية / HERO SECTION                   -->
+    <!-- ============================================================== -->
+    <section class="hero-section" id="home">
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-pill">
+              <span>🌸 لمسة أنثوية راقية لمطبخك وبيتك</span>
+            </div>
+            <!-- العنوان الرئيسي الوحيد H1 للـ SEO -->
+            <h1 class="hero-title">
+              اجعلي كل ركن في بيتك يشع <span>بالأنوثة والجمال</span>
+            </h1>
+            <p class="hero-subtitle">
+              في متجر VEXOURIA ننتقي لكِ أجود مستلزمات المطبخ، مائدة الضيافة العصرية، منظمات الترتيب وأرق الديكورات المنزلية بألوان زاهية ومبهجة تمنحكِ الراحة والفخامة التي تستحقينها.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#products" class="btn btn-primary">
+                <span>تصفحي المنتجات الآن</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#deals" class="btn btn-outline">عروض التخفيضات</a>
+            </div>
+          </div>
+
+          <!-- الصورة الرئيسية للهيرو مع بطاقات عائمة -->
+          <div class="hero-visual-wrapper">
+            <div class="hero-main-card">
+              <!-- 📸 صورة الهيرو الرئيسية: يمكنكِ استبدالها بوضع صورتك هنا -->
+              <img src="assets/images/hero.jpg" alt="تصميم مطبخ ومنزل أنثوي عصري" width="600" height="480">
+            </div>
+
+            <!-- بطاقة إحصائية عائمة 1 -->
+            <div class="floating-badge badge-pos-1">
+              <div class="fbadge-icon">⭐</div>
+              <div class="fbadge-text">
+                <strong>4.9 / 5 تقييم ممتاز</strong>
+                <span>أكثر من 12,000 سيدة راضية</span>
+              </div>
+            </div>
+
+            <!-- بطاقة إحصائية عائمة 2 -->
+            <div class="floating-badge badge-pos-2">
+              <div class="fbadge-icon">🚚</div>
+              <div class="fbadge-text">
+                <strong>الدفع عند الاستلام</strong>
+                <span>توصيل سريع حتى باب دارك</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 🛡️ 4. شريط الثقة والضمانات / TRUST BADGES STRIP               -->
+    <!-- ============================================================== -->
+    <section class="trust-strip">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-icon">🚚</div>
+            <div class="trust-info">
+              <h4>شحن سريع ومجاني</h4>
+              <p>للطلبات فوق 300 د.م لجميع المدن</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">💵</div>
+            <div class="trust-info">
+              <h4>الدفع عند الاستلام</h4>
+              <p>عاين منتوجك عاد خلص مع الموزع</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">✨</div>
+            <div class="trust-info">
+              <h4>جودة أصلية ممتازة</h4>
+              <p>خامات صحية ومختارة بعناية فائقة</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">🔄</div>
+            <div class="trust-info">
+              <h4>ضمان الاستبدال 14 يوم</h4>
+              <p>خدمة زبائن سريعة عبر الواتساب</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 📂 5. فئات المنتجات الرئيسية / CATEGORIES SHOWCASE             -->
+    <!-- ============================================================== -->
+    <section class="categories-section" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">اكتشفي الأقسام</span>
+          <h2 class="section-title">مجموعات مختارة <span>لتزيين مملكتك</span></h2>
+          <p class="section-desc">اختاري ما يناسب ذوقك من تشكيلاتنا الحصرية المتكاملة للمطبخ والمنزل</p>
+        </div>
+
+        <div class="categories-grid">
+          <!-- فئة 1: المطبخ -->
+          <div class="category-card" onclick="setCategory('kitchen'); document.getElementById('products').scrollIntoView();">
+            <!-- 📸 صورة فئة المطبخ -->
+            <img src="assets/images/cat_kitchen.jpg" alt="أدوات ومستلزمات المطبخ">
+            <div class="category-overlay">
+              <h3 class="category-name">أدوات المطبخ والطهي</h3>
+              <p class="category-subtitle">طناجر سيراميك، مقالي، أجهزة عصرية ←</p>
+            </div>
+          </div>
+
+          <!-- فئة 2: مائدة الطعام -->
+          <div class="category-card" onclick="setCategory('dining'); document.getElementById('products').scrollIntoView();">
+            <!-- 📸 صورة فئة مائدة الطعام -->
+            <img src="assets/images/cat_dining.jpg" alt="أطقم مائدة الطعام والضيافة">
+            <div class="category-overlay">
+              <h3 class="category-name">مائدة الطعام والضيافة</h3>
+              <p class="category-subtitle">أطباق بورسلين، كؤوس، أطقم شوك وملاعق ←</p>
+            </div>
+          </div>
+
+          <!-- فئة 3: التنظيم والترتيب -->
+          <div class="category-card" onclick="setCategory('organizer'); document.getElementById('products').scrollIntoView();">
+            <!-- 📸 صورة فئة التنظيم -->
+            <img src="assets/images/cat_organizer.jpg" alt="منظمات المطبخ والبهارات">
+            <div class="category-overlay">
+              <h3 class="category-name">التنظيم والترتيب</h3>
+              <p class="category-subtitle">برطمانات زجاجية، حوامل توابل، منظمات ذكية ←</p>
+            </div>
+          </div>
+
+          <!-- فئة 4: ديكور المنزل -->
+          <div class="category-card" onclick="setCategory('decor'); document.getElementById('products').scrollIntoView();">
+            <!-- 📸 صورة فئة الديكور -->
+            <img src="assets/images/cat_decor.jpg" alt="ديكورات ولمسات أنثوية للمنزل">
+            <div class="category-overlay">
+              <h3 class="category-name">الديكور واللمسات الأنثوية</h3>
+              <p class="category-subtitle">فازات نورديك، شموع معطرة، أكسسوارات دافئة ←</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 🔥 6. قسم عرض اليوم الحصري مع العداد / FLASH DEAL BANNER       -->
+    <!-- ============================================================== -->
+    <section class="flash-deal-section" id="deals">
+      <div class="container">
+        <div class="deal-card">
+          <div class="deal-content">
+            <span class="deal-badge">🔥 عرض محدود جداً - خصم 40%</span>
+            <h2 class="deal-title">باك الأناقة المتكامل للمطبخ الملكي</h2>
+            <p style="color:var(--text-muted); font-size: 1rem;">
+              يضم طقم أواني السيراميك الوردي الفاخر (6 قطع) + طقم ملاعق الروز جولد الملكي (24 قطعة) + هدية شمعة معطرة طبيعية مجاناً!
+            </p>
+
+            <!-- عداد تنازلي نشط -->
+            <div class="countdown-wrapper">
+              <div class="countdown-box">
+                <span class="countdown-number" id="cd-hours">14</span>
+                <span class="countdown-label">ساعة</span>
+              </div>
+              <div class="countdown-box">
+                <span class="countdown-number" id="cd-mins">45</span>
+                <span class="countdown-label">دقيقة</span>
+              </div>
+              <div class="countdown-box">
+                <span class="countdown-number" id="cd-secs">20</span>
+                <span class="countdown-label">ثانية</span>
+              </div>
+            </div>
+
+            <!-- مؤشر المخزون -->
+            <div class="stock-progress">
+              <div class="stock-text">
+                <span>القطع المتبقية في المخزن:</span>
+                <span style="color:var(--primary); font-weight:800;">7 قطع فقط!</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width: 82%;"></div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
+              <button class="btn btn-primary" onclick="openCheckout({title: 'باك الأناقة المتكامل للمطبخ الملكي', price: 699, qty: 1})">
+                <span>اطلبي الآن والدفع عند الاستلام</span>
+                <span style="background:rgba(255,255,255,0.25); padding:2px 8px; border-radius:10px;">699 د.م</span>
+              </button>
+              <button class="btn btn-whatsapp" onclick="orderViaWhatsApp({title: 'باك الأناقة المتكامل للمطبخ الملكي', price: 699})">
+                <span>واتساب مباشر</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="deal-visual">
+            <!-- 📸 صورة عرض اليوم -->
+            <img src="assets/images/hero.jpg" alt="باك الأناقة المتكامل">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 🛍️ 7. كتالوج المنتجات المعروضة للبيع / PRODUCTS CATALOG         -->
+    <!-- هنا يمكنكِ بسهولة تعديل الصور، العناوين، الأثمنة، والأوصاف      -->
+    <!-- ============================================================== -->
+    <section class="products-section" id="products">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">أحدث المنتجات المعروضة</span>
+          <h2 class="section-title">تشكيلة <span>المطبخ والمنزل</span></h2>
+          <p class="section-desc">منتجات أصلية ذات جودة عالية تضيف لمسة سحرية وعصرية لكل بيت</p>
+        </div>
+
+        <!-- أزرار تصفية الأقسام -->
+        <div class="filter-nav">
+          <button class="filter-btn active" onclick="setCategory('all', this)">الكل (جميع المنتجات)</button>
+          <button class="filter-btn" onclick="setCategory('kitchen', this)">🍳 أدوات المطبخ</button>
+          <button class="filter-btn" onclick="setCategory('dining', this)">🍽️ مائدة الطعام</button>
+          <button class="filter-btn" onclick="setCategory('organizer', this)">🏺 التنظيم والترتيب</button>
+          <button class="filter-btn" onclick="setCategory('decor', this)">🌸 ديكور المنزل</button>
+        </div>
+
+        <!-- شبكة المنتجات (تتفاعل تلقائياً مع السلة ونظام الطلب السريع) -->
+        <div class="products-grid" id="products-grid">
+          <!-- يتم توليد كروت المنتجات ديناميكياً بواسطة assets/js/main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 💎 8. لماذا تختارين متجرنا؟ / WHY CHOOSE US                   -->
+    <!-- ============================================================== -->
+    <section class="why-us-section" id="why-us">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">لماذا VEXOURIA؟</span>
+          <h2 class="section-title">نسعى دائماً <span>لإسعادك وتميز بيتك</span></h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feature-icon-circle">🎨</div>
+            <h3>تصاميم أنثوية حصرية</h3>
+            <p>نختار ألواناً دافئة وزاهية تبعث البهجة والأناقة في أرجاء مطبخك ومنزلك اليومي.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-circle">💎</div>
+            <h3>جودة تدوم طويلاً</h3>
+            <p>مواد صحية 100% خالية من الرصاص والمواد الكيماوية لسلامتك وسلامة عائلتك.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-circle">🎁</div>
+            <h3>تغليف فاخر وأنيق</h3>
+            <p>تصلك طلبيتك في علب مرتبة ومغلفة بعناية وكأنها هدية فاخرة تفتحينها بنفسك.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-circle">💬</div>
+            <h3>خدمة ومتابعة سريعة</h3>
+            <p>فريقنا يتابع معكِ طلبيتك من لحظة خروجها وحتى وصولها إلى باب بيتك ورضاك التام.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 💬 9. آراء العميلات والتقييمات / CUSTOMER TESTIMONIALS        -->
+    <!-- ============================================================== -->
+    <section class="reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">تجارب حقيقية</span>
+          <h2 class="section-title">ماذا تقول <span>عميلاتنا الأنيقات؟</span></h2>
+          <p class="section-desc">فخورون بثقة آلاف السيدات اللواتي جملن مطابخهن وبيوتهن معنا</p>
+        </div>
+
+        <div class="reviews-grid">
+          <!-- رأي 1 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-avatar">س</div>
+              <div class="reviewer-info">
+                <h4>سناء العلمي - الرباط</h4>
+                <div class="reviewer-badge">
+                  <span>✓ مشترية مؤكدة</span>
+                  <span class="stars" style="color:var(--star-color);">★★★★★</span>
+                </div>
+              </div>
+            </div>
+            <p>"الصراحة طقم الأواني الوردي خيالي فالواقع أحسن بكتير من الصور! الجرانيت تقيل وماكيلصقش نهائياً، والتوصيل كان سريع خلال 24 ساعة للرباط. تبارك الله عليكم!"</p>
+            <span class="review-product-tag">طقم أواني سيراميك وردي</span>
+          </div>
+
+          <!-- رأي 2 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-avatar">م</div>
+              <div class="reviewer-info">
+                <h4>مريم بنجلون - الدار البيضاء</h4>
+                <div class="reviewer-badge">
+                  <span>✓ مشترية مؤكدة</span>
+                  <span class="stars" style="color:var(--star-color);">★★★★★</span>
+                </div>
+              </div>
+            </div>
+            <p>"عجبني بزاف المنظم ديال التوابل والبرطمانات، مطبخي تنظم ولا كيحمق بحال تصاور بينترست! والتعامل ديالكم فالواتساب راقي ومؤدب بزاف."</p>
+            <span class="review-product-tag">منظم بهارات وتوابل خشبي</span>
+          </div>
+
+          <!-- رأي 3 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-avatar">ف</div>
+              <div class="reviewer-info">
+                <h4>فاطمة الزهراء - مراكش</h4>
+                <div class="reviewer-badge">
+                  <span>✓ مشترية مؤكدة</span>
+                  <span class="stars" style="color:var(--star-color);">★★★★★</span>
+                </div>
+              </div>
+            </div>
+            <p>"طقم المائدة والروز جولد حمر ليا وجهي قدام الضياف! لمعة فخمة وتغليف متقن ومحمي مزيان. هادي ماشي آخر مرة نتقدى من عندكم أكيد!"</p>
+            <span class="review-product-tag">طقم سفرة ملكي مذهب</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- ❓ 10. الأسئلة الشائعة / FAQ ACCORDION                        -->
+    <!-- ============================================================== -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">استفساراتك تهمنا</span>
+          <h2 class="section-title">الأسئلة الأكثر <span>تكراراً</span></h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <div class="faq-question">
+              <span>كيف تتم عملية الدفع والتسليم؟</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              الدفع يكون نقداً عند الاستلام (Paiement à la livraison / Cash on Delivery). الموزع يحضر طلبيتك إلى العنوان الذي حددته، يمكنكِ فحص طلبك ومن ثم الدفع بكل طمأنينة.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>كم يستغرق التوصيل إلى مدينتي؟</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              يستغرق التوصيل عادةً بين 24 إلى 48 ساعة فقط لمعظم المدن الرئيسية، ومن 2 إلى 3 أيام لباقي المناطق. نتواصل معكِ هاتفياً لتحديد وقت التسليم المناسب لكِ.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>ما هي سياسة الاستبدال والاسترجاع؟</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              لديكِ 14 يوماً كاملة لطلب استبدال أو استرجاع أي منتج في حال كان به أي عيب مصنعي أو لم يطابق توقعاتكِ، وفريق خدمة العملاء جاهز لخدمتك فوراً عبر الواتساب.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>هل خامات أواني الطهي صحية وآمنة؟</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              نعم بكل تأكيد! جميع الأواني مصنوعة من الجرانيت والسيراميك الصحي والخالي 100% من مادتي PFOA والرصاص، ومصممة لطهي صحي بأقل كمية من الزيوت.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 💌 11. النشرة البريدية وخصم أول طلب / NEWSLETTER               -->
+    <!-- ============================================================== -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-box">
+          <span class="section-tag" style="background:white;">نادي VEXOURIA للأناقة</span>
+          <h3>انضمي إلى عائلتنا واحصلي على خصم 10%</h3>
+          <p>اشتركي برقم هاتفك أو بريدك الإلكتروني لتصلكِ أحدث التشكيلات وكوبونات الخصم الحصرية أسبوعياً.</p>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="text" placeholder="أدخلي رقم الواتساب أو بريدك الإلكتروني..." required>
+            <button type="submit" class="btn btn-primary">اشتراك وتفعيل الخصم</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================== -->
+  <!-- 🦶 12. الفوتر وحقوق النشر / FOOTER & COPYRIGHT                 -->
+  <!-- ============================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- عمود 1: النبذة والشعار -->
+        <div class="footer-column footer-brand">
+          <a href="#home" class="brand-logo">
+            <div class="logo-icon">🌸</div>
+            <div class="logo-text">
+              <span class="logo-title">VEXOURIA</span>
+              <span class="logo-subtitle">Luxury Home & Kitchen</span>
+            </div>
+          </a>
+          <p class="footer-about">
+            علامتكِ المفضلة لكل ما يخص أواني المطبخ، مائدة الضيافة، ومنظمات المنزل العصرية. نصنع من كل تفصيلة في بيتك لوحة فنية أنثوية تدعو للراحة والبهجة.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" title="Instagram">📸</a>
+            <a href="#" class="social-icon" title="TikTok">🎵</a>
+            <a href="#" class="social-icon" title="Facebook">📘</a>
+            <a href="https://wa.me/212600000000" class="social-icon" title="WhatsApp">💬</a>
+          </div>
+        </div>
+
+        <!-- عمود 2: روابط سريعة -->
+        <div class="footer-column">
+          <h4>روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="#home">الصفحة الرئيسية</a></li>
+            <li><a href="#categories">الأقسام والتشكيلات</a></li>
+            <li><a href="#products">أحدث المنتجات</a></li>
+            <li><a href="#deals">تخفيضات اليوم</a></li>
+            <li><a href="#reviews">آراء الزبائن</a></li>
+          </ul>
+        </div>
+
+        <!-- عمود 3: السياسات وخدمة العملاء -->
+        <div class="footer-column">
+          <h4>خدمة العملاء</h4>
+          <ul class="footer-links">
+            <li><a href="#faq">سياسة الشحن والتوصيل</a></li>
+            <li><a href="#faq">سياسة الاستبدال والاسترجاع</a></li>
+            <li><a href="#faq">الضمان وحماية المشتري</a></li>
+            <li><a href="#faq">الشروط والأحكام</a></li>
+            <li><a href="#faq">سياسة الخصوصية</a></li>
+          </ul>
+        </div>
+
+        <!-- عمود 4: معلومات التواصل والطلبات -->
+        <div class="footer-column">
+          <h4>تواصلي معنا</h4>
+          <div class="footer-contact-list">
+            <div class="contact-row">
+              <i>📞</i>
+              <span>الهاتف / واتساب: +212 600 000 000</span>
+            </div>
+            <div class="contact-row">
+              <i>✉️</i>
+              <span>البريد الإلكتروني: contact@vexouria.com</span>
+            </div>
+            <div class="contact-row">
+              <i>🕒</i>
+              <span>أوقات العمل: طيلة أيام الأسبوع (9:00 - 21:00)</span>
+            </div>
+            <div class="contact-row">
+              <i>📍</i>
+              <span>المقر: الدار البيضاء، المغرب</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- حقوق الطبع والنشر وأيقونات الدفع -->
+      <div class="footer-bottom">
+        <!-- 🔒 حقوق الملكية محفوظة -->
+        <p class="copyright-text">
+          جميع الحقوق محفوظة © 2026 لمتجر <strong>VEXOURIA</strong>. صُمم بحب وأناقة لكل سيدة تبحث عن التميز.
+        </p>
+        <div class="payment-badges">
+          <span class="pay-badge">💵 الدفع عند الاستلام (COD)</span>
+          <span class="pay-badge">💳 بطاقات بنكية</span>
+          <span class="pay-badge">📱 أداء فوري سريع</span>
+          <span class="pay-badge">🔒 دفع آمن 100%</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================== -->
+  <!-- 🛒 13. سلة المشتريات التفاعلية الجانبية / SLIDE CART DRAWER     -->
+  <!-- ============================================================== -->
+  <aside class="cart-drawer" id="cart-drawer" aria-label="سلة المشتريات">
+    <div class="cart-header">
+      <h3>
+        <span>🛒 سلة المشتريات</span>
+      </h3>
+      <button class="close-btn" onclick="toggleCart(false)" aria-label="إغلاق السلة">✕</button>
+    </div>
+
+    <!-- شريط تقدم الشحن المجاني -->
+    <div class="cart-free-shipping">
+      <p id="free-shipping-text">أضيفي <strong>70 د.م</strong> للاستفادة من <strong>الشحن المجاني</strong>!</p>
+      <div class="progress-bar-bg" style="height:6px;">
+        <div class="progress-bar-fill" id="shipping-progress-fill" style="width: 70%;"></div>
+      </div>
+    </div>
+
+    <!-- قائمة عناصر السلة -->
+    <div class="cart-items-list" id="cart-items-list">
+      <!-- يتم توليد عناصر السلة ديناميكياً -->
+    </div>
+
+    <!-- فوتر السلة مع حساب المجاميع -->
+    <div class="cart-footer">
+      <!-- قسيمة الخصم -->
+      <div class="cart-coupon-box">
+        <input type="text" id="coupon-input" placeholder="كود الخصم (جربي: VEXOURIA10)">
+        <button class="btn btn-outline btn-sm" onclick="applyCoupon()">تطبيق</button>
+      </div>
+
+      <div class="cart-totals-rows">
+        <div class="cart-total-row">
+          <span>المجموع الفرعي:</span>
+          <span id="cart-subtotal">0 د.م</span>
+        </div>
+        <div class="cart-total-row" id="cart-discount-row" style="display:none; color:var(--sale-badge);">
+          <span>الخصم المطبق:</span>
+          <span id="cart-discount-val">0 د.م</span>
+        </div>
+        <div class="cart-total-row">
+          <span>التوصيل:</span>
+          <span style="color:var(--success); font-weight:700;">مجاني ✨</span>
+        </div>
+        <div class="cart-total-row grand-total">
+          <span>المجموع الإجمالي:</span>
+          <span id="cart-total">0 د.م</span>
+        </div>
+      </div>
+
+      <!-- أزرار الإجراءات -->
+      <button class="btn btn-primary btn-block" onclick="toggleCart(false); openCheckout();" style="margin-bottom:10px;">
+        <span>متابعة الطلب والدفع عند الاستلام</span>
+      </button>
+      <button class="btn btn-whatsapp btn-block" onclick="orderViaWhatsApp()">
+        <span>طلب سريع عبر الواتساب</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============================================================== -->
+  <!-- 🔍 14. نافذة المعاينة السريعة للمنتج / QUICK VIEW MODAL        -->
+  <!-- ============================================================== -->
+  <div class="modal-box" id="quick-view-modal">
+    <button class="modal-close-corner" onclick="closeAllModals()">✕</button>
+    <div class="modal-product-grid">
+      <div class="modal-gallery-main">
+        <img id="qv-img" src="assets/images/cat_kitchen.jpg" alt="معاينة المنتج">
+      </div>
+      <div class="modal-details">
+        <span class="badge-tag badge-best" id="qv-badge" style="position:static; display:inline-block; margin-bottom:8px;">الأكثر طلباً</span>
+        <h2 id="qv-title">اسم المنتج النموذجي</h2>
+        <div class="modal-price-box">
+          <span class="price-current" id="qv-price" style="font-size:1.8rem;">499 د.م</span>
+          <span class="price-old" id="qv-old-price" style="font-size:1.1rem;">699 د.م</span>
+        </div>
+        <p class="modal-desc" id="qv-desc">
+          وصف تفصيلي كامل لمواصفات وجودة هذا المنتج مع بيان خاماته الممتازة وطريقة استخدامه السهلة.
+        </p>
+
+        <!-- اختيار الألوان -->
+        <div class="variant-picker">
+          <div class="variant-title">اختاري اللون المفضل:</div>
+          <div class="color-dots">
+            <span class="color-dot active" style="background:#F6A5A5;" title="وردي باستيل"></span>
+            <span class="color-dot" style="background:#F9F1DC;" title="عاجي لؤلؤي"></span>
+            <span class="color-dot" style="background:#D4AF37;" title="ذهبي دافئ"></span>
+          </div>
+        </div>
+
+        <!-- محدد الكمية -->
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px;">
+          <span style="font-weight:700;">الكمية:</span>
+          <div class="qty-stepper">
+            <button onclick="adjustQvQty(-1)">-</button>
+            <span id="qv-qty">1</span>
+            <button onclick="adjustQvQty(1)">+</button>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn btn-primary btn-block" id="qv-add-btn">أضيفي إلى السلة</button>
+          <button class="btn btn-outline btn-block" id="qv-cod-btn">شراء فوري والدفع عند الاستلام</button>
+          <button class="btn btn-whatsapp btn-block" id="qv-whatsapp-btn">استفسار أو طلب عبر واتساب</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 📝 15. نافذة الطلب السريع والدفع عند الاستلام / COD CHECKOUT    -->
+  <!-- ============================================================== -->
+  <div class="modal-box checkout-modal-box" id="checkout-modal">
+    <button class="modal-close-corner" onclick="closeAllModals()">✕</button>
+    <div class="checkout-header">
+      <div style="font-size:2.2rem; margin-bottom:6px;">📦</div>
+      <h3>إتمام الطلب - الدفع عند الاستلام</h3>
+      <p style="color:var(--text-muted); font-size:0.88rem;">أدخلي معلوماتك وسيصلكِ الطلب حتى باب دارك بكل أمان</p>
+    </div>
+
+    <!-- ملخص المشتريات -->
+    <div id="checkout-items-summary"></div>
+
+    <form class="checkout-form" onsubmit="submitCheckout(event)">
+      <div class="form-group">
+        <label for="order-name">الاسم واللقب الكامل *</label>
+        <input type="text" id="order-name" class="form-control" placeholder="مثال: ليلى الحسني" required>
+      </div>
+
+      <div class="form-group">
+        <label for="order-phone">رقم الهاتف (واتساب لتأكيد الإرسال) *</label>
+        <input type="tel" id="order-phone" class="form-control" placeholder="06XXXXXXXX" required>
+      </div>
+
+      <div class="form-group">
+        <label for="order-city">المدينة *</label>
+        <input type="text" id="order-city" class="form-control" placeholder="مثال: الدار البيضاء، مراكش، طنجة..." required>
+      </div>
+
+      <div class="form-group">
+        <label for="order-address">عنوان التوصيل (الحي والزنقة)</label>
+        <input type="text" id="order-address" class="form-control" placeholder="عنوانك أو أقرب مكان معروف">
+      </div>
+
+      <div style="background:var(--success-bg); color:var(--success); padding:10px 14px; border-radius:var(--radius-sm); font-size:0.85rem; display:flex; align-items:center; gap:8px;">
+        <span>🔒 ضمان 100%: لا تدفعين أي مبلغ إلا بعد معاينة طلبيتك واستلامها.</span>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" style="padding:14px; font-size:1.05rem;">
+        تأكيد الطلب الآن (الدفع عند الاستلام)
+      </button>
+    </form>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 🔍 16. نافذة البحث المباشر / LIVE SEARCH MODAL                 -->
+  <!-- ============================================================== -->
+  <div class="modal-box search-modal-box" id="search-modal">
+    <button class="modal-close-corner" onclick="closeAllModals()">✕</button>
+    <h3 style="margin-bottom:16px; font-weight:800;">ابحثي في منتجات VEXOURIA</h3>
+    <div class="search-input-wrapper">
+      <input type="text" id="search-input" placeholder="اكتبي اسم المنتج (أواني، برطمانات، سفرة، فازة...)" oninput="handleSearch(this.value)">
+    </div>
+    <div class="search-results-list" id="search-results">
+      <p style="color:var(--text-muted); text-align:center; padding: 20px;">ابدئي بكتابة اسم المنتج للبحث السريع...</p>
+    </div>
+  </div>
+
+  <!-- خلفية تعتيم النوافذ المنبثقة -->
+  <div class="modal-overlay" id="modal-overlay"></div>
+
+  <!-- إشعار Toast عند الإضافة للسلة -->
+  <div class="toast-notice" id="toast">
+    <span class="toast-icon">✓</span>
+    <span class="toast-text">تمت العملية بنجاح</span>
+  </div>
+
+  <!-- 🟢 زر الواتساب العائم في زاوية الشاشة لطلب سريع -->
+  <a href="javascript:void(0)" onclick="orderViaWhatsApp()" class="floating-whatsapp-widget" title="تواصل أو طلب عبر الواتساب">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.798 2.787.799h.004c3.18 0 5.77-2.587 5.77-5.766.001-3.182-2.586-5.785-5.77-5.785zm3.385 8.163c-.144.405-.837.774-1.17.822-.311.045-.698.077-2.227-.556-1.954-.809-3.218-2.798-3.315-2.928-.098-.129-.785-1.045-.785-1.993 0-.948.497-1.414.673-1.609.176-.195.385-.245.513-.245.129 0 .257.001.369.006.118.005.276-.045.432.329.16.386.55 1.341.599 1.439.049.098.082.213.016.342-.065.129-.098.21-.194.323-.098.113-.205.253-.293.34-.1.098-.204.205-.088.404.116.198.514.848 1.101 1.371.758.675 1.397.884 1.595.982.198.098.314.082.43-.05.116-.132.497-.579.629-.776.132-.198.264-.165.446-.098.182.066 1.155.545 1.353.644.198.099.33.148.379.231.049.083.049.479-.095.884z"/></svg>
+    <span>طلب سريع بالواتساب</span>
+  </a>
+
+  <!-- Main JavaScript File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
 
